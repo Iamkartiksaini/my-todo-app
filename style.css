@@ -1,281 +1,284 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-:root{
-    --bgColor : rgb(128,82,236);
-    --btnColor : rgb(128,82,236);
-    --todoBg : #fff;
-    --chatInputBg : rgb(238,238,238);
-    --chatInputText : rgb(188,188,188);
-    --btnHover : rgb(93, 23, 255);
+:root {
+  --bgColor: rgb(128, 82, 236);
+  --btnColor: rgb(128, 82, 236);
+  --todoBg: #fff;
+  --chatInputBg: rgb(238, 238, 238);
+  --chatInputText: rgb(188, 188, 188);
+  --btnHover: rgb(93, 23, 255);
 }
-html,body{
-    height: 100%;
-    width: 100%;
-    font-family: sans-serif;
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-family: sans-serif;
 }
-body{
-    position: relative;
+body {
+  position: relative;
 }
 .header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem;
-    position: absolute;
-    width: 100%;
-    z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  position: absolute;
+  width: 100%;
+  z-index: 10;
 }
 .logo {
-    height: 50px;
-    width: 50px;
-    -webkit-tap-highlight-color: transparent; /* For Chrome, Safari, and other WebKit-based browsers */
-    -webkit-focus-ring-color: transparent;    /* For iOS Safari focus */
+  height: 50px;
+  width: 50px;
+  -webkit-tap-highlight-color: transparent; /* For Chrome, Safari, and other WebKit-based browsers */
+  -webkit-focus-ring-color: transparent; /* For iOS Safari focus */
 }
 .logo img {
-    width: 100%;
-    height: 100%;
-    border-radius: 100%;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  object-fit: cover;
 }
 ul {
-    gap: 13px;
-    list-style: none;
+  gap: 13px;
+  list-style: none;
 }
 
-ul a{
-    text-decoration: none;
+ul a {
+  text-decoration: none;
 }
 header i {
-    color: rgb(245, 239, 239);
-    font-size: 28px;
-    -webkit-tap-highlight-color: transparent; /* For Chrome, Safari, and other WebKit-based browsers */
-    -webkit-focus-ring-color: transparent;    /* For iOS Safari focus */
-    outline: none; /* For removing focus outline */
-    cursor: pointer;
+  color: rgb(245, 239, 239);
+  font-size: 28px;
+  -webkit-tap-highlight-color: transparent; /* For Chrome, Safari, and other WebKit-based browsers */
+  -webkit-focus-ring-color: transparent; /* For iOS Safari focus */
+  outline: none; /* For removing focus outline */
+  cursor: pointer;
+}
+main {
+  height: 100%;
+  background: var(--bgColor);
+  padding-inline: 20px;
+  position: relative;
+}
+
+.todo-container {
+  max-width: 500px;
+  width: 100%;
+  height: 70%;
+  background: #fff;
+  border-radius: 13px;
+  padding-inline: 25px;
+  padding-block: 30px;
+  flex-direction: column;
+  gap: 27px;
+  box-shadow: 2px 2px 8px 2px rgb(174, 82, 236);
+}
+
+.title {
+  gap: 10px;
+}
+.title i {
+  color: rgb(4, 0, 255);
+  font-size: 28px;
+}
+
+.task-input {
+  background: rgb(237, 238, 240);
+  border-radius: 100px;
+  padding-left: 20px;
+  position: relative;
+}
+
+.task-input input {
+  /* width: 70%; */
+  border: none;
+  outline: none;
+  background: transparent;
+  flex-grow: 1;
+  font-size: 15px;
+}
+.task-input input::placeholder {
+  color: rgb(111, 114, 115);
+}
+.add-btn {
+  width: 32%;
+  background-color: var(--btnColor);
+  border: none;
+  color: white;
+  font-family: sans-serif;
+  padding: 20px 20px;
+  border-radius: 100px;
+  font-size: 16px;
+  text-transform: uppercase;
+  cursor: pointer;
+  &:hover {
+    background-color: var(--btnHover);
   }
-main{
-    height: 100%;
-    background: var(--bgColor);
-    padding-inline: 20px;
-    position: relative;
+  &:disabled {
+    background-color: #cacaca;
+  }
 }
-
-.todo-container{
-    max-width: 500px;
-    width: 100%;
-    height: 70%;
-    background: #fff;
-    border-radius: 13px;
-    padding-inline: 25px;
-    padding-block: 30px;
-    flex-direction: column;
-    gap: 27px;
-    box-shadow: 2px 2px 8px 2px rgb(174, 82, 236);
-}
-
-.title{
-    gap: 10px;
-}
-.title i{
-    color: rgb(4, 0, 255);
-    font-size: 28px;
-}
-
-.task-input{
-    background: rgb(237,238,240);
-    border-radius: 100px;
-    padding-left: 20px;
-    position: relative;
-}
-
-
-.task-input input{
-    /* width: 70%; */
-    border: none;
-    outline: none;
-    background: transparent;
-    flex-grow: 1;
-    font-size: 15px;
-}
-.task-input input::placeholder{
-    color: rgb(111, 114, 115);
-}
-.add-btn{
-    width: 32%;
-    background: var(--btnColor);
-    border: none;
-    color: white;
-    font-family: sans-serif;
-    padding: 20px 20px;
-    border-radius: 100px;
-    font-size: 16px;
-    text-transform: uppercase;
-    cursor: pointer;
-}
-.add-btn:hover{
-    background: var(--btnHover);
-}
+.add-btn
 /* task */
-.relative{
-    position: relative;
-    flex-grow: 1;
-    width: 100%;
+.relative {
+  position: relative;
+  flex-grow: 1;
+  width: 100%;
   overflow-y: auto;
 }
 
-::-webkit-scrollbar{
-    width: 0;
+::-webkit-scrollbar {
+  width: 0;
 }
-.tasks-cont{
-    gap: 10px;
-    flex-direction: column;
-    flex-grow: 1;
-}
-
-.message{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50% ,-50%);
-    color: rgba(144, 150, 152, 0.397);
-    text-align: center;
+.tasks-cont {
+  gap: 10px;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
-.tick{
-    height: 27px;
-    width: 27px;
-    border: 2px solid rgb(237,238,240);
-    border-radius: 50%;
-    pointer-events: none;
-    flex-shrink : 0;
-    cursor: pointer;
+.message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgba(144, 150, 152, 0.397);
+  text-align: center;
 }
 
-.main-task{
-    gap: 8px;
-    width: 88%;
-    cursor: pointer;
+.tick {
+  height: 27px;
+  width: 27px;
+  border: 2px solid rgb(237, 238, 240);
+  border-radius: 50%;
+  pointer-events: none;
+  flex-shrink: 0;
+  cursor: pointer;
 }
-.icons{
-    width: 12%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+
+.main-task {
+  gap: 8px;
+  width: 88%;
+  cursor: pointer;
 }
-.ai{
-    cursor: pointer;
+.icons {
+  width: 12%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-.ai i{
-    font-size: 17px;
-    height: 100%;
-    pointer-events: none;
+.ai {
+  cursor: pointer;
+}
+.ai i {
+  font-size: 17px;
+  height: 100%;
+  pointer-events: none;
 }
 .icons .cross-icon {
-    font-size: 24px;
-    transform: rotate(45deg);
-    cursor: pointer;
-    height: fit-content;
-    width: fit-content;
+  font-size: 24px;
+  transform: rotate(45deg);
+  cursor: pointer;
+  height: fit-content;
+  width: fit-content;
 }
 
-.cross-icon i{
-    pointer-events: none;
+.cross-icon i {
+  pointer-events: none;
 }
-.task{
-    padding: 2px;
-    align-items: center;
-    display: flex;
-}
-
-.task-text{
-    pointer-events: none;
-}
-.check-icon{
-    display: none;
-}
-.completed .tick{
-    background: var(--btnColor);
-    border: 2px solid var(--btnColor)
-}
-.completed .check-icon{
-    display: block;
-}
-.completed .task-text{
-    text-decoration: line-through;
-    color: rgb(186, 189, 196);
+.task {
+  padding: 2px;
+  align-items: center;
+  display: flex;
 }
 
+.task-text {
+  pointer-events: none;
+}
+.check-icon {
+  display: none;
+}
+.completed .tick {
+  background: var(--btnColor);
+  border: 2px solid var(--btnColor);
+}
+.completed .check-icon {
+  display: block;
+}
+.completed .task-text {
+  text-decoration: line-through;
+  color: rgb(186, 189, 196);
+}
 
-.err{
-    position: absolute;
-    top: -18px;
-    left: 14px;
-    font-size: 13px;
-    color: rgb(225 88 88);
-    font-weight: 550;
-    transition: 0.2s all ease;
-  }
+.err {
+  position: absolute;
+  top: -18px;
+  left: 14px;
+  font-size: 13px;
+  color: rgb(225 88 88);
+  font-weight: 550;
+  transition: 0.2s all ease;
+}
 
 .chat {
-    position: absolute;
-    /* background: #000; */
-    bottom:30px;
-    right: 30px;
+  position: absolute;
+  /* background: #000; */
+  bottom: 30px;
+  right: 30px;
 }
 
-.gemini-icon{
-    height: 40px;
-    width: 40px;
-    font-size: 24px;
-    background: var(--bgColor);
-    border-radius: 50%;
-    padding: 7px;
-    cursor: pointer;
-    box-shadow: 1px 1px 2px 0px rgb(147, 255, 255) ,-1px -1px 5px 0px rgb(218, 201, 255);
+.gemini-icon {
+  height: 40px;
+  width: 40px;
+  font-size: 24px;
+  background: var(--bgColor);
+  border-radius: 50%;
+  padding: 7px;
+  cursor: pointer;
+  box-shadow: 1px 1px 2px 0px rgb(147, 255, 255),
+    -1px -1px 5px 0px rgb(218, 201, 255);
 }
-.gemini-icon i{
-    color: white;
-}
-
- .chat-window{
-   
-    position: absolute;
-    bottom: 104%;
-    right: 104%;
-    width: 300px;
-    height: 450px;
-    background: white;
-    color: black;
-    z-index: 1;
-    font-family: Helvetica, sans-serif;
-    border-radius: 10px;
-    box-shadow: 2px 2px 6px 0 rgb(135, 174, 222) , -2px -2px 6px 0 rgb(135, 174, 222);
-} 
-.chat-text-cont{
-    height: 90%;
-    padding: 10px 12px;
-    flex-direction: column;
-    gap: 10px;
-    overflow-y: auto;
-    /* background: #d27474; */
-}
-.ask-ai{
-    color: var(--bgColor);
-    text-align: center;
-    margin-bottom: 9px;
+.gemini-icon i {
+  color: white;
 }
 
-.chatbot-text-cont{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+.chat-window {
+  position: absolute;
+  bottom: 104%;
+  right: 104%;
+  width: 300px;
+  height: 450px;
+  background: white;
+  color: black;
+  z-index: 1;
+  font-family: Helvetica, sans-serif;
+  border-radius: 10px;
+  box-shadow: 2px 2px 6px 0 rgb(135, 174, 222),
+    -2px -2px 6px 0 rgb(135, 174, 222);
 }
-.chatbot-text-cont i{
+.chat-text-cont {
+  height: 90%;
+  padding: 10px 12px;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto;
+  /* background: #d27474; */
+}
+.ask-ai {
+  color: var(--bgColor);
+  text-align: center;
+  margin-bottom: 9px;
+}
+
+.chatbot-text-cont {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  i {
     font-size: 30px;
     background: var(--chatInputBg);
     width: 40px;
@@ -284,97 +287,99 @@ main{
     border-radius: 50%;
     align-items: center;
     justify-content: center;
-    color: rgb(0, 145, 255);;
+    color: rgb(0, 145, 255);
+  }
 }
-.user-req{
-    align-self: flex-end;
-}
-
-.user-req p{
+.user-req {
+  align-self: flex-end;
+  p {
     margin-left: auto;
     color: white;
     background: var(--bgColor);
     align-self: flex-end;
-}
-.chat-text{
-    word-wrap: break-word;
-    width: 80%;
-    padding: 12px 12px;
-    background: var(--chatInputBg);
-    color: black;
-    border-radius: 10px;
+  }
 }
 
-
-.chat-input{ 
-    height: 10%;
-    padding: 4px 16px;
-    justify-content: space-between;
-} 
-#chat-input {
-    border: none;
-    outline: none;
-    width: calc(100% - 50px);
-    padding: 10px 5px;
-    padding-left: 12px;
-    border-radius: 12px;
-    background: var(--chatInputBg);
-    color: black;
-    font-family: Helvetica, sans-serif;
-    font-weight: 500;
+.chat-text {
+  word-wrap: break-word;
+  width: 80%;
+  padding: 12px 12px;
+  background: var(--chatInputBg);
+  color: black;
+  border-radius: 10px;
 }
 
-#chat-input::placeholder{
+.chat-input {
+  height: 10%;
+  padding: 4px 16px;
+  justify-content: space-between;
+}
+#chat_input {
+  border: none;
+  outline: none;
+  width: calc(100% - 50px);
+  padding: 10px 5px;
+  padding-left: 12px;
+  border-radius: 12px;
+  background: var(--chatInputBg);
+  color: black;
+  font-family: Helvetica, sans-serif;
+  font-weight: 500;
+  &::placeholder {
     color: var(--chatInputText);
+  }
 }
-.sendbtn{
-    width: 35px;
-    height: 35px;
-    background: var(--bgColor);
-    border-radius: 50%;
-    padding: 7px;
-    cursor: pointer;
-    border: none;
-}
-.sendbtn:hover{
-    background: var(--btnHover);
-}
-.sendbtn i{
-    color:  white;
+
+.sendbtn {
+  width: 35px;
+  height: 35px;
+  background-color: var(--bgColor);
+  border-radius: 50%;
+  padding: 7px;
+  cursor: pointer;
+  border: none;
+  &:hover {
+    background-color: var(--btnHover);
+  }
+  &[disabled="true"] {
+    background-color: #cacaca;
+  }
+  i {
+    color: white;
     font-size: 18px;
+  }
 }
 
-.close-chat{
-    position: absolute;
-    right: 6px;
-    top: 4px;
-    font-size: 28px;
-    transform: rotate(45deg);
-    cursor: pointer;
-    z-index: 11;
+.close-chat {
+  position: absolute;
+  right: 6px;
+  top: 4px;
+  font-size: 28px;
+  transform: rotate(45deg);
+  cursor: pointer;
+  z-index: 11;
 }
-.flex{
-    display: flex;
+.flex {
+  display: flex;
 }
-.justify-center{
-    justify-content: center;
-}
-
-.align-center{
-    align-items: center;
+.justify-center {
+  justify-content: center;
 }
 
-.none{
-    display: none;
+.align-center {
+  align-items: center;
 }
 
-.block{
-    display: block;
-}
-.hidden{
-    visibility: hidden;
+.none {
+  display: none;
 }
 
+.block {
+  display: block;
+}
+.hidden {
+  visibility: hidden;
+}
 
 /* @media (max-width: 1200px) {
 .chat-window{
@@ -383,65 +388,60 @@ main{
 }
 } */
 @media (min-width: 800px) {
-    .chatbot-text-cont i{
-      display: none;
-    }
+  .chatbot-text-cont i {
+    display: none;
+  }
 }
 @media (max-width: 800px) {
-.chat-window{
+  .chat-window {
     height: 100vh;
     width: 100vw;
     bottom: 0%;
     right: 0%;
     padding: 15px 20px 0 7px;
     border-radius: 0;
-}
+  }
 
-
-.chat{
+  .chat {
     position: static;
-} 
-.close-chat{
+  }
+  .close-chat {
     right: 11px;
     top: 10px;
     font-size: 30px;
-}
+  }
 }
 @media (max-width: 500px) {
-    .add-btn{
-        padding: 15px 20px;
-        font-size: 14px;
-        border-radius:25px;
-    }
-    .input{
-        width: 50%;
-        flex-grow: 0;
-    }
-    .message{
-        font-size: 22px;
-    }
-    .main-task{
-        width: 85%;
-    }
-    .icons{
-        width:15%;
-       
-    }
+  .add-btn {
+    padding: 15px 20px;
+    font-size: 14px;
+    border-radius: 25px;
+  }
+  .input {
+    width: 50%;
+    flex-grow: 0;
+  }
+  .message {
+    font-size: 22px;
+  }
+  .main-task {
+    width: 85%;
+  }
+  .icons {
+    width: 15%;
+  }
 }
 @media (max-width: 300px) {
-    .main-task{
-        width: 80%;
-    }
-    .icons{
-        width:20%;
-       
-    }
-    .add-btn{
-        padding: 10px 20px;
-    }
-    .icons .cross-icon {
-        font-size: 18px;
-    }
-    
+  .main-task {
+    width: 80%;
+  }
+  .icons {
+    width: 20%;
+  }
+  .add-btn {
+    padding: 10px 20px;
+  }
+  .icons .cross-icon {
+    font-size: 18px;
+  }
 }
-

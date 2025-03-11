@@ -9,42 +9,56 @@
       rel="stylesheet"
     />
     <link
-    href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
-    rel="stylesheet"
-  />
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
   </head>
 
   <body>
     <header class="header">
-      <div class="logo"><img src="logo.jpg" alt=""></div>
+      <div class="logo"><img src="logo.jpg" alt="" /></div>
       <nav>
-          <ul class="flex align-center justify-center">
-              <li><a href="https://www.instagram.com/aaditya_kumar_1120/?next=%2F" target="_blank"><i class="ri-instagram-line"></i></a></li>
-              <li><a href="https://github.com/adityakumar1120/my-todo-app" target="_blank"><i class="ri-github-fill"></i></a></li>
-          </ul>
+        <ul class="flex align-center justify-center">
+          <li>
+            <a
+              href="https://www.instagram.com/aaditya_kumar_1120/?next=%2F"
+              target="_blank"
+              ><i class="ri-instagram-line"></i
+            ></a>
+          </li>
+          <li>
+            <a
+              href="https://github.com/adityakumar1120/my-todo-app"
+              target="_blank"
+              ><i class="ri-github-fill"></i
+            ></a>
+          </li>
+        </ul>
       </nav>
-  </header>
+    </header>
     <main class="flex justify-center align-center">
-
       <div class="chat">
         <div class="chat-window none">
-          <div class="close-chat"> <i class="ri-add-line "></i></div>
+          <div class="close-chat"><i class="ri-add-line"></i></div>
           <div class="chat-text-cont flex">
             <h1 class="ask-ai">Ask AI</h1>
-            <!-- <div class="chatbot-text-cont">
-              <i class="ri-gemini-fill"></i>
-              <p class="chat-text">helooooo</p>
-            </div>
-            <div class="chatbot-text-cont user-req">
-              <p class="chat-text">hello</p>
-            </div> -->
-            
           </div>
           <div class="chat-input flex align-center">
-            <input type="text" id="chat-input" placeholder="Ask AI">
-            <button class="sendbtn flex align-center justify-center"><i class="ri-send-plane-2-line"></i></button>
+            <input
+              height="auto"
+              type="text"
+              id="chat_input"
+              placeholder="Ask AI"
+            />
+            <button
+              id="sendbtn"
+              disabled="true"
+              class="sendbtn flex align-center justify-center"
+            >
+              <i class="ri-send-plane-2-line"></i>
+            </button>
           </div>
         </div>
         <div class="gemini-icon none">
@@ -52,7 +66,9 @@
         </div>
       </div>
       <div class="todo-container flex">
-        <h2 class="title flex align-center">To-Do List <i class="ri-todo-line"></i></h2>
+        <h2 class="title flex align-center">
+          To-Do List <i class="ri-todo-line"></i>
+        </h2>
         <div class="task-input-cont">
           <div class="task-input flex">
             <span class="err hidden">Please Enter the Task</span>
@@ -62,36 +78,20 @@
               class="input"
               placeholder="Add your task"
             />
-            <button class="add-btn flex align-center justify-center
-            ">Add</button>
+            <button
+              disabled="true"
+              class="add-btn flex align-center justify-center"
+            >
+              Add
+            </button>
           </div>
         </div>
 
         <div class="relative">
           <h1 class="message none">Add your Task</h1>
-          <div class="tasks-cont flex">
-<!-- 
-            <div class="task flex">
-              <div class="main-task flex">
-                <div class="tick flex justify-center align-center">
-                  <img src="tick.svg" class="check-icon" alt="" />
-                </div>
-                <p class="task-text">Lorem </p>
-
-              </div>
-            <div class="icons">
-              <div class="ai">
-                <i class="ri-gemini-fill"></i>
-              </div>
-              <div class="cross-icon delete">
-                <i class="ri-add-line "></i>
-              </div>
-          </div>
-            </div> -->
-          </div>
+          <div class="tasks-cont flex"></div>
         </div>
       </div>
     </main>
-    
   </body>
 </html>
